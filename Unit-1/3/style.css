@@ -1,0 +1,18 @@
+body {
+  background-image: url('https://i.ytimg.com/vi/PWu4yyyysTw/maxresdefault.jpg');
+  background-position: center;
+  background-size: auto;
+}
+.containing {
+  background-color: lightblue;
+  opacity: 0.8;
+  border-radius: 15px;
+  text-align: center;
+}
+.select, .input {
+  margin-left: 50%;
+}
+
+.label {
+  margin-left: 50%;
+}

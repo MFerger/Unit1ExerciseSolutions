@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html ng-app>
-
+<html ng-app='comicBookApp'>
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <link rel="stylesheet" href="style.css" >
-  <title>Data Binding</title>
+  <script type="text/javascript">
+    var app = angular.module('comicBookApp', [])
+    .controller('ComicBookController', function($scope){
+    $scope.comicBook = 'Saga';
+    $scope.tellMe = function() {
+      return "OMG I love " + $scope.comicBook
+    }
+    });
+  </script>
+  <title>Angular MVC</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="containing">
-      <h1>Data Binding</h1>
-      <h3>My hero is: <span ng-bind='comicBook'></span> about {{ subject }}</h3>
+    <div class="containing" ng-controller='ComicBookController'>
+      <h1>Angular MVC</h1>
+      <h3>My favorite comic book is: <span ng-bind='comicBook'></span> about <span ng-bind='subject'></span></h3>
       <div class='row'>
         <div class='six columns'>
-          <label class='label' for="comic">My comic book is </label>
-          <input type="text" class='u-full-width input' id='comic' ng-init='hero="Deadpool?"' placeholder='Wait... not Deadpool??? How are you.' ng-model='comicBook'></input>
+          <label class='label' for="comicBook">My comic book is </label>
+          <input type="text" class='u-full-width input' id='comic' placeholder='Wait... not Deadpool??? How are you.' ng-model='comicBook'></input>
         </div>
       </div>
       <div class="row">
@@ -30,6 +37,7 @@
           </select>
         </div>
       </div>
+      {{ tellMe() }}
     </div>
   </div>
 </body>
