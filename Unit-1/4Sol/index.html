@@ -1,4 +1,40 @@
 <!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Expressions and Filters</title>
+</head>
+<body>
+    <div class="container">
+      <div class='six columns'>
+        <h1 class='text-center'>Please fill out the forms</h1>
+        <hr>
+        <label class='label' for="input">Boy's Name</label>
+        <input type="text" class='u-full-width input' id='input1' placeholder='Enter a boys name' ng-model='input1'></input>
+        <label class='label' for="input">Adjective</label>
+        <input type="text" class='u-full-width input' id='input2' placeholder='Enter an adjective' ng-model='input2'></input>
+        <label class='label' for="input">Plural Noun</label>
+        <input type="text" class='u-full-width input' id='input3' placeholder='Enter a plural noun' ng-model='input3'></input>
+        <label class='label' for="input">Plural Noun</label>
+        <input type="text" class='u-full-width input' id='input4' placeholder='Enter a plural noun' ng-model='input4'></input>
+        <label class='label' for="input">An Insect, Plural</label>
+        <input type="text" class='u-full-width input' id='input5' placeholder='Enter an insect, plural' ng-model='input5'></input>
+        <label class='label' for="input">Plural Noun</label>
+        <input type="text" class='u-full-width input' id='input6' placeholder='Enter a plural noun' ng-model='input6'></input>
+        <label class='label' for="input">A Verb ending in 'S'</label>
+        <input type="text" class='u-full-width input' id='input7' placeholder='Enter a varb ending in s' ng-model='input7'></input>
+      </div>
+      <div class='six columns'>
+        <h3>I'm in love with <span>{{ input1 | uppercase}}</span>. He's so <span>{{ input2 | uppercase}}</span>! He has big flat <span>{{ input3 | uppercase}}</span>, and when our <span>{{ input4 | uppercase}}</span> meet, I get <span>{{ input5 | uppercase}}</span> in my stomach. I've fallen for him like a ton of <span>{{ input6 | uppercase}}</span>, and he <span>{{ input7 | uppercase}}</span> for me, too. But I think he's got another girlfriend. What should I do?</h3>
+      </div>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
 <html ng-app='tipCalc'>
 <head>
   <meta charset="UTF-8">
@@ -35,7 +71,7 @@ app.controller('calc', function($scope){
 </body>
 </html>
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app='piSimplifier'>
 <head>
   <meta charset="UTF-8">
