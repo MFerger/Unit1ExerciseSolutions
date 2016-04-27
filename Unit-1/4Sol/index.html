@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html ng-app='piSimplifier'>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Expressions and Filters</title>
+  <script type="text/javascript">
+  var app = angular.module('piSimplifier', [])
+  app.controller('pi', function($scope){
+    $scope.expression = function(number){
+      return Math.PI.toFixed(number)
+      };
+  });
+  </script>
+</head>
+<body>
+    <div class="container" ng-controller='pi'>
+      <!-- <h3>How many digits do you want of Pi?
+          <select ng-model='number'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </h3>
+        <p>
+          <ng-pluralize
+            count="number"
+            when="{'1': '3.1', '2': '3.14','3': '3.141','4': '3.1415','5': '3.14159','6': '3.141592','7': '3.1415926','8': '3.14159265','9': '3.141592653'}">
+          </ng-pluralize>
+        </p> -->
+      <p>How many digits do you want of Pi?
+          <select ng-model='number'>
+            <option value="1" selected='selected'>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </p>
+        <p>
+          <!-- <ng-pluralize
+            count="number">
+          </ng-pluralize> -->
+          <span>{{expression(number)}}</span>
+        </p>
+    </div>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html ng-app='tipCalc'>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Expressions and Filters</title>
+</head>
+<script type="text/javascript">
+var app = angular.module('tipCalc', [])
+app.controller('calc', function($scope){
+  $scope.expression = function(number){
+        return number;
+}
+});
+</script>
+<body>
+    <div class="container" ng-controller='calc'>
+      <div class='six columns'>
+        <h1>Super Useful Tip Calculator</h1>
+        <label class='label' for="input">How much did you end up paying?</label>
+        <input type="text" class='u-full-width input' id='input' ng-model='input'></input>
+        <label class='label' for="dropdown">How much would you like to tip?</label>
+        <select >
+          <option value="1">10%</option>
+          <option value="2">15%</option>
+          <option value="3">20%</option>
+        </select>
+      </div>
+      <div>{{this}}</div>
+      <div class='six columns'>
+        <h3>Subtotal: {{ input | currency}}</h3>
+          <h3>Tip: {{ input | currency}}</h3>
+        </div>
+    </div>
+</body>
+</html>
+
+ <!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Expressions and Filters</title>
+</head>
+<body>
+    <div class="container">
+      <div class='six columns'>
+        <label class='label' for="input">Please Say Something</label>
+        <input type="text" class='u-full-width input' id='input' ng-model='input'></input>
+      </div>
+      <br><br><br>
+    <pre>
+        <h3>Whispering: <code>{{ input | lowercase}}</code></h3>
+      </pre>
+      <br>
+      <pre>
+          <h3>Shouting: <code>{{ input | uppercase}}</code></h3>
+        </pre>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html ng-app='moneysimplifier'>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Expressions and Filters</title>
+  <script type="text/javascript">
+  var app = angular.module('moneysimplifier', [])
+  app.controller('currency', function($scope){
+    $scope.expression = 3.14159265359
+  });
+  </script>
+</head>
+<body>
+    <div class="container" ng-controller='currency'>
+<h3>Numbers here</h3>
+      <pre>
+        <code>{{ expression | currency: "€" }}</code>
+      </pre>
+    </div>
+</body>
+
+</html>
