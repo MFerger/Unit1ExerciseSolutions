@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='form'>
+<head>
+  <meta charset="UTF-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="app.js"></script>
+  <title>Contacts</title>
+</head>
+<body ng-controller='MainController'>
+  <div class="container col-md-5 col-md-offset-2">
+    <h1 ng-click='animate'>Enter you information</h1>
+    <h3 ng-show="user.userDisplay" ng-bind="user | json"></h3>
+  <form novalidate name='myForm' ng-submit='subForm()'>
+    <div class="form-group" ng-class="{'has-error': myForm.username.$invalid && myForm.username.$touched, 'has-success': myForm.username.$valid}">
+      <label class='control-label' for="username">Username:</label>
+      <input type="text" class="form-control" id="username" ng-model='vm.username' name='username' placeholder="Email" required><br>
+      <p class="control-label" ng-show="myForm.username.$invalid && myForm.username.$touched">Hey you have to enter a valid username bud...</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error': myForm.password.$invalid && myForm.password.$touched, 'has-success': myForm.password.$valid}">
+      <label class="control-label" for="password">Password:</label>
+      <input type="text" class="form-control" id="password" name='password' ng-model='vm.password' placeholder="Password" required><br>
+      <p class="control-label" ng-show='myForm.password.$invalid && myForm.password.$touched'>Hey you have to enter a valid password bud...</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error': myForm.email.$invalid && myForm.email.$touched, 'has-success': myForm.email.$valid}">
+      <label class="control-label" for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name='email' ng-model='vm.email' placeholder="Email" required><br>
+      <p class="control-label" ng-show='myForm.email.$invalid && myForm.email.$touched'>Hey you have to enter a valid email bud...</p>
+    </div>
+    <div class="form-group" ng-class="{'has-error': myForm.zip.$invalid && myForm.zip.$touched, 'has-success': myForm.zip.$valid}">
+      <label class="control-label" for="zip">Zip Code:</label>
+      <input type="text" class="form-control" id="zip" name='zip' ng-model='vm.zip' placeholder="Zip" required minlength='5' maxlength='5' pattern='^\d{5}(?:[-\s]\d{4})?$'><br>
+      <p class="control-label" ng-show='myForm.zip.$invalid && myForm.zip.$touched'>Hey you have to enter a valid zipcode bud... All numbers and only 5</p>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+</body>
+</html>

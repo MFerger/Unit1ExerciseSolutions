@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="reverse">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <script type="text/javascript">
+    var app = angular.module('reverse', [])
+    app.controller('reverseWord', function($scope) {
+      $scope.word = {};
+      $scope.words = function(word) {
+        $scope.word.word = word.split('').reverse('').join('');
+      }
+    })
+    app.controller('pongScore', function($scope) {
+      $scope.p1 = 0;
+      $scope.p2 = 0;
+      $scope.button = function() {
+        $scope.p1 = 0;
+        $scope.p2 = 0;
+      }
+      $scope.checkerP1 = function() {
+        if($scope.p1 < 11 && $scope.p2 !== 11) {
+          $scope.p1 = $scope.p1 + 1
+        }
+      }
+      $scope.checkerP2 = function() {
+        if($scope.p2 < 11 && $scope.p1 !== 11) {
+          $scope.p2 = $scope.p2 + 1
+        }
+      }
+      $scope.reset = function() {
+        $scope.p1 = 0;
+        $scope.p2 = 0;
+      }
+    });
+    app.controller('colorChanger', function($scope, $timeout) {
+      $scope.arr = [];
+      $scope.randomColors =
+        function randomColor() {
+          var x = Math.round(0xffffff * Math.random()).toString(16);
+          var y = (6 - x.length);
+          var z = "000000";
+          var z1 = z.substring(0, y);
+          var color = "#" + z1 + x;
+          $scope.arr.push(color);
+          console.log($scope.arr);
+          $scope.color = {
+            'background-color': color
+          };
+        };
+      var replaying = false;
+      var colorIndex = $scope.arr.length;
+
+      $scope.replay = function() {
+        var count = 0;
+        var displayPrevColor = function() {
+          var color = $scope.arr;
+          colorIndex -= 1;
+          $scope.color = {
+            'background-color': color[colorIndex]
+          };
+          if (colorIndex < 0) {
+            colorIndex = color.length
+            // return;
+          }
+          replaying = false;
+
+          $timeout(displayPrevColor, 500);
+        };
+        if (!replaying) {
+          replaying = true;
+          $timeout(function() {
+            displayPrevColor();
+          }, 200);
+        }
+      };
+    });
+  </script>
+  <style>
+    .left {
+      /*display: inline-flex;*/
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      background-color: blue;
+    }
+
+    .right {
+      /*display: inline-flex;*/
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      background-color: blue;
+    }
+
+    .green {
+      background-color: green;
+      /*display: inline-flex;*/
+      width: 200px;
+      height: 200px;
+    }
+
+    .red {
+      background-color: red;
+      /*display: inline-flex;*/
+      width: 200px;
+      height: 200px;
+    }
+
+    p,
+    h3 {
+      display: block;
+    }
+
+    .colorBox {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div ng-controller="reverseWord">
+    <h3>Word Reverser</h3>
+    <h1 ng-show>
+    <input type="text" name="name" ng-model='word.word'>
+    <p>Your word is: {{word.word}}</p>
+    <button type="button" ng-click='words(word.word)' name="button">Reverse</button>
+  </div>
+  <div ng-controller="pongScore">
+    <div class="left" ng-click='checkerP1()' ng-class='{green: p1 == 11, red: p2 == 11}'>
+      <h3>Player 1</h3>
+      <p ng-model='p1'>{{p1}}</p>
+      <br>
+      <p ng-show='(p1 + p2) % 4 === 0 || (p1 + p2) % 4 === 1'>Serving</p>
+    </div>
+    <div class="right" ng-click='checkerP2()' ng-class='{red: p1 == 11, green: p2 == 11}'>
+      <h3>Player 2</h3>
+      <p ng-model='p2'>{{p2}}</p>
+      <br>
+      <p ng-show='(p1 + p2) % 4 === 2 || (p1 + p2) % 4 === 3'>Serving</p>
+    </div><br>
+    <button ng-click='reset()'>Reset the game</button><br>
+  </div>
+  <div ng-controller='colorChanger'>
+    <div class='colorBox' ng-style='color' ng-mouseenter='randomColors()'>
+    </div>
+    <input type="button" name="name" ng-click='replay()'>Repeat</input>
+  </form>
+  </div>
+</body>
+
+</html>

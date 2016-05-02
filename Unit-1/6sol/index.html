@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app='madlibs'>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Expressions and Filters</title>
+</head>
+<script type="text/javascript">
+var app = angular.module('madlibs', [])
+app.controller('madLibs', function($scope){
+  $scope.result = false;
+  $scope.madlibs = function(input1, input2, input3, input4, input5, input6, input7) {
+    return "I'm in love with "+input1.toUpperCase()+". He's so "+input2.toUpperCase()+"! He has big flat "+input3.toUpperCase()+", and when our "+input4.toUpperCase()+" meet, I get "+input5.toUpperCase()+" in my stomach. I've fallen for him like a ton of "+input6.toUpperCase()+", and he "+input7.toUpperCase()+" for me, too. But I think he's got another girlfriend. What should I do?"
+  }
+});
+</script>
+<body>
+    <div class="container" ng-controller='madLibs'>
+      <div class='six columns'>
+        <h1 class='text-center'>Please fill out the forms</h1>
+        <hr>
+        <label class='label' for="input">Boy's Name</label>
+        <input type="text" class='u-full-width input' id='input1' placeholder='Enter a boys name' ng-model='input1' minlength='1' required></input>
+        <label class='label' for="input">Adjective</label>
+        <input type="text" class='u-full-width input' id='input2' placeholder='Enter an adjective' ng-model='input2'></input>
+        <label class='label' for="input">Plural Noun</label>
+        <input type="text" class='u-full-width input' id='input3' placeholder='Enter a plural noun' ng-model='input3'></input>
+        <label class='label' for="input">Plural Noun</label>
+        <input type="text" class='u-full-width input' id='input4' placeholder='Enter a plural noun' ng-model='input4'></input>
+        <label class='label' for="input">An Insect, Plural</label>
+        <input type="text" class='u-full-width input' id='input5' placeholder='Enter an insect, plural' ng-model='input5'></input>
+        <label class='label' for="input">Plural Noun</label>
+        <input type="text" class='u-full-width input' id='input6' placeholder='Enter a plural noun' ng-model='input6'></input>
+        <label class='label' for="input">A Verb ending in 'S'</label>
+        <input type="text" class='u-full-width input' id='input7' placeholder='Enter a varb ending in s' ng-model='input7'></input>
+        <button type="button" name="button" ng-model='text' ng-click='result = !result'>Show the text!</button>
+      </div>
+      <div class='six columns' ng-show='result'>
+        <h3>{{madlibs(input1,input2,input3,input4,input5,input6,input7)}}</h3>
+      </div>
+    </div>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html ng-app='comicBookApp'>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <title>Document</title>
+  <script type="text/javascript">
+  var app = angular.module('comicBookApp', [])
+  .controller('controller', function($scope){
+    $scope.favColor = 'blue';
+    $scope.rightNow = new Date();
+    $scope.secondaryColor = function() {
+      return 60*60*24*360*100;
+    }
+  });
+  </script>
+</head>
+<body ng-controller='controller'>
+  {{ favColor }}
+  <h3>{{ secondaryColor() | number }}</h3>
+  <h3>{{rightNow | date :'fullDate'}}</h3>
+</body>
+</html>

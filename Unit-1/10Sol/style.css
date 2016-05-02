@@ -1,0 +1,19 @@
+.ng-hide-remove {
+ transition: 2s ease all;
+ opacity: 0;
+}
+
+.ng-hide-remove-active {
+ transition: 2s ease all;
+ opacity: 1;
+}
+
+.ng-hide-add {
+ transition: 2s ease all;
+ opacity: 1;
+}
+
+.ng-hide-add-active {
+ transition: 2s ease all;
+ opacity: 0;
+}

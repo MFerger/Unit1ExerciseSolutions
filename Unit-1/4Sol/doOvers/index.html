@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app='form'>
+<head>
+ <meta charset="UTF-8">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+ <script src="app.js" charset="utf-8"></script>
+ <title>Expressions and Filters</title>
+</head>
+<body>
+   <div class="container" ng-controller='selectedForm'>
+     <div class='12 columns'>
+       <!-- <h3>Super Useful Tip Calculator!!!</h3>
+       <h4>
+         <span>How much did your meal cost?</span>
+         <span><input type="text" name="name" ng-model='input'></span>
+       </h4>
+       <h4>
+         <span>How much do you want to tip?</span>
+         <span>
+           <select ng-model='tip'>
+             <option>10%</option>
+             <option>15%</option>
+             <option>20%</option>
+           </select>
+       </span>
+       </h4>
+      <h3 ng-model='sub'>Subtotal: {{input | currency }}</h3>
+      <h3 ng-model='calcTip'>Tip: {{input * calculatedTip()/100 | currency}}</h3>
+      <h3 ng-model='total'>Total: {{ total() | currency}}</h3> -->
+
+       <!-- <h3>
+         <span>How many digits of Pi do you want?</span>
+         <span><select ng-model='numbers'>
+             <option>1</option>
+             <option>2</option>
+             <option>3</option>
+             <option>4</option>
+             <option>5</option>
+             <option>6</option>
+             <option>7</option>
+             <option>8</option>
+             <option>9</option>
+         </select></span>
+       </h3>
+       <h4>
+         <span>Here ya go! The first {{numbers}} <ng-pluralize count="numbers" when="{1: ' digit', other: ' digits'}"></ng-pluralize> of Pi!:</span><br>
+         {{ 3.141592653 | number: numbers}}
+       </h4> -->
+       <!-- <h1 class='text-center'>Please fill out the forms</h1>
+       <hr>
+       <label class='label' for="input">Boy's Name</label>
+       <input type="text" class='u-full-width input' id='input1' placeholder='Enter a boys name' ng-model='input1'></input>
+       <label class='label' for="input">Adjective</label>
+       <input type="text" class='u-full-width input' id='input2' placeholder='Enter an adjective' ng-model='input2'></input>
+       <label class='label' for="input">Plural Noun</label>
+       <input type="text" class='u-full-width input' id='input3' placeholder='Enter a plural noun' ng-model='input3'></input>
+       <label class='label' for="input">Plural Noun</label>
+       <input type="text" class='u-full-width input' id='input4' placeholder='Enter a plural noun' ng-model='input4'></input>
+       <label class='label' for="input">An Insect, Plural</label>
+       <input type="text" class='u-full-width input' id='input5' placeholder='Enter an insect, plural' ng-model='input5'></input>
+       <label class='label' for="input">Plural Noun</label>
+       <input type="text" class='u-full-width input' id='input6' placeholder='Enter a plural noun' ng-model='input6'></input>
+       <label class='label' for="input">A Verb ending in 'S'</label>
+       <input type="text" class='u-full-width input' id='input7' placeholder='Enter a varb ending in s' ng-model='input7'></input>
+       <button type="button" name="button" ng-model="collapsed" ng-click="collapsed=!collapsed">Show the text!</button>
+       </div>
+       <div class='six columns'>
+       <h3 ng-show="collapsed">I'm in love with <span>{{ input1 | uppercase}}</span>. He's so <span>{{ input2 | uppercase}}</span>! He has big flat <span>{{ input3 | uppercase}}</span>, and when our <span>{{ input4 | uppercase}}</span> meet, I get <span>{{ input5 | uppercase}}</span> in my stomach. I've fallen for him like a ton of <span>{{ input6 | uppercase}}</span>, and he <span>{{ input7 | uppercase}}</span> for me, too. But I think he's got another girlfriend. What should I do?</h3>
+       </div> -->
+       </div>
+     </div>
+</body>
+</html>
