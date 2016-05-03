@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="app.js" charset="utf-8"></script>
   <title>Expressions and Filters</title>
 </head>
-<script type="text/javascript">
+
+<!-- <script type="text/javascript">
 var app = angular.module('madlibs', [])
 app.controller('madLibs', function($scope){
   $scope.result = false;
@@ -14,11 +16,12 @@ app.controller('madLibs', function($scope){
     return "I'm in love with "+input1.toUpperCase()+". He's so "+input2.toUpperCase()+"! He has big flat "+input3.toUpperCase()+", and when our "+input4.toUpperCase()+" meet, I get "+input5.toUpperCase()+" in my stomach. I've fallen for him like a ton of "+input6.toUpperCase()+", and he "+input7.toUpperCase()+" for me, too. But I think he's got another girlfriend. What should I do?"
   }
 });
-</script>
+</script> -->
 <body>
     <div class="container" ng-controller='madLibs'>
       <div class='six columns'>
-        <h1 class='text-center'>Please fill out the forms</h1>
+        
+        <!-- <h1 class='text-center'>Please fill out the forms</h1>
         <hr>
         <label class='label' for="input">Boy's Name</label>
         <input type="text" class='u-full-width input' id='input1' placeholder='Enter a boys name' ng-model='input1' minlength='1' required></input>
@@ -37,7 +40,7 @@ app.controller('madLibs', function($scope){
         <button type="button" name="button" ng-model='text' ng-click='result = !result'>Show the text!</button>
       </div>
       <div class='six columns' ng-show='result'>
-        <h3>{{madlibs(input1,input2,input3,input4,input5,input6,input7)}}</h3>
+        <h3>{{madlibs(input1,input2,input3,input4,input5,input6,input7)}}</h3> -->
       </div>
     </div>
 </body>
