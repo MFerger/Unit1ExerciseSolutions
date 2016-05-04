@@ -1,2 +1,4 @@
-<h3>{{view.yoyo.name}}</h3>
-<img ng-src="{{view.yoyo.img}}">
+<div ng-repeat='yoyo in yoyos'>
+<h3 ng-bind='yoyo.name'></h3>
+<img ng-src="{{yoyo.img}}">
+</div>
